@@ -1,10 +1,5 @@
 pipeline {
-   
-   
-    
-
-
- tools { 
+tools { 
         maven 'MAVEN_HOME' 
        }
        
@@ -29,7 +24,7 @@ pipeline {
             steps {
                cucumber buildStatus: "UNSTABLE",
                fileIncludePattern: "**/cucumber.json",
-               jsonReportDirectory: 'Point_Pb/target'
+               jsonReportDirectory: 'AutomationBDD/target'
                 }
                 
             }
@@ -46,7 +41,7 @@ pipeline {
       body: '${SCRIPT, template="groovy-html.template"}',
       mimeType: 'text/html',
       subject: 'Success Pipeline: ${currentBuild.fullDisplayName}',
-      to: 'abhishek.gaur1@pb.com'          
+      to: 'sahoo.rashmitaqa@gmail.com'          
                          
           
         }
