@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+
 
 public class Hooks {
 	public static WebDriver driver;
@@ -29,11 +32,26 @@ public class Hooks {
 	 */
 	public void openBrowser() throws IOException {
 		
-		prop=new Properties();
+		FileInputStream fis=new FileInputStream("src//main//resources//Data.xlsx");
+
+		XSSFWorkbook wb=new XSSFWorkbook(fis);
+		
+		XSSFSheet sheet1=wb.getSheetAt(0);
+		
+		int rowcount= sheet1.getLastRowNum();
+		
+		System.out.println(rowcount);
+		
+		
+		String Browsername= sheet1.getRow(0).getCell(0).getStringCellValue();
+		String url= sheet1.getRow(0).getCell(1).getStringCellValue();
+		
+		
+/*		prop=new Properties();
 		FileInputStream fis=new FileInputStream("src//main//resources//Browser.properties");
 		prop.load(fis);
 		String url=prop.getProperty("url");
-		String Browsername=prop.getProperty("browser");
+		String Browsername=prop.getProperty("browser");*/
 		
 		
 		if(Browsername.equals("chrome")){
@@ -43,6 +61,9 @@ public class Hooks {
 			driver.manage().deleteAllCookies();
 			driver.get(url);
 			driver.manage().window().maximize();
+			
+			
+			
 		}
 		else if(Browsername.equals("firefox")){
 			System.setProperty("webdriver.gecko.driver", "driver//geckodriver.exe");
@@ -51,6 +72,7 @@ public class Hooks {
 			driver.get(url);
 			driver.manage().window().maximize();
 			}
+		wb.close();
 		
 	}
 
@@ -72,7 +94,7 @@ public class Hooks {
 			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
 				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 			}
-
+			
 		}
 		driver.quit();
 
