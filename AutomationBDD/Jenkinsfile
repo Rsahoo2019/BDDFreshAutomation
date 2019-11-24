@@ -10,7 +10,7 @@ tools {
         stage ('Compile Stage') {
 
             steps {
-                  bat 'mvn -f Point_Pb/pom.xml clean'
+                  bat 'mvn -f AutomationBDD/pom.xml clean'
                
             }
         }
@@ -18,7 +18,7 @@ tools {
         stage ('Testing Stage') {
 
             steps {
-                  bat 'mvn -f Point_Pb/pom.xml install' 
+                  bat 'mvn -f AutomationBDD/pom.xml install' 
                   }
         }
 
