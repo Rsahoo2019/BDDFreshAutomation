@@ -5,22 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import utility.SeleniumModule;
-
 public class Login_Object extends BaseClass {
 	
 	public static WebDriver driver;
 
 	public Login_Object(WebDriver driver) {
 		super(driver);
-	}
-	
-	
-	public static void firstname()
-	{
-		
-		SeleniumModule.element("//input[@id='username']");
-		
 	}
 	
 	@FindBy(how=How.XPATH, using="//input[@id='username']")
@@ -32,8 +22,8 @@ public class Login_Object extends BaseClass {
 	@FindBy(how=How.XPATH, using="//input[@id='Login']")
 	public static WebElement login;
 	
-	@FindBy(how=How.XPATH, using="//a[contains(text(),'Remind Me Later')]")
-	public static WebElement remindme_Later;
+	/*@FindBy(how=How.XPATH, using="//a[contains(text(),'Remind Me Later')]")
+	public static WebElement remindme_Later;*/
 	
 	@FindBy(how=How.XPATH, using="//a[@id='signup_link']")
 	public static WebElement Tryforfree;

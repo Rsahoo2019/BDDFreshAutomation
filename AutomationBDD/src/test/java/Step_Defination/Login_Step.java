@@ -34,8 +34,8 @@ public class Login_Step {
 	@Then("^User should be able to login$")
 	public void user_should_be_able_to_login() throws Throwable {
       Login_Object.login.click();
-      Login_Object.remindme_Later.click();
-	    Thread.sleep(80000);
+     /* Login_Object.remindme_Later.click();*/
+	    Thread.sleep(30000);
 		
 	}
 	

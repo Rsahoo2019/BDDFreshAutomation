@@ -102,11 +102,11 @@ public class SeleniumModule extends BaseClass{
 	 * @param by
 	 * @param inputText
 	 */
-	public static void type( WebElement element,String inputtext) {
+	public static void type(WebElement element,String inputtext) {
 
 		
 
-		element.clear();
+		//element.clear();
 		element.sendKeys(inputtext);
 
 	}

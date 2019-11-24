@@ -5,7 +5,9 @@ Feature: LogIn to Application SalesForce by Free Trial
 
   Scenario: To Validate Login into the Application with Free trial
     Given Login into the Salesforce Application
-    When User click on Try for free button
+    When User passes value with excel row "2" dataset
     And User click on the check box
     And user click on the Start my free trial
     Then User login into the application
+
+    

@@ -72,7 +72,6 @@ public class Hooks {
 			driver.get(url);
 			driver.manage().window().maximize();
 			}
-		wb.close();
 		
 	}
 
@@ -94,9 +93,9 @@ public class Hooks {
 			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
 				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 			}
-			
+
 		}
-		driver.quit();
+		//driver.quit();
 
 	}
 
